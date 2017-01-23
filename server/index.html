@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io.js"></script>
+    <script>
+//        $(function(){
+//            var socket = io.connect('http://172.31.195.106:3000');
+//            $('.motor').on('keydown', function(){
+//                socket.emit('changeBlinkInterval',1);
+//            });
+//            $('.motor').on('mouseup', function(){
+//                socket.emit('changeBlinkInterval',0);
+//            });
+//        });
+
+        $(function(){
+            var socket = io.connect('http://172.31.195.106:3000');
+            $("body").keydown(function(e) {
+                if(e.keyCode == 37) { // left
+                    socket.emit('left',1);
+                }
+                if(e.keyCode == 39) { // right
+                    socket.emit('right',1);
+                }
+                if(e.keyCode == 38) { // straight
+                    socket.emit('straight',1);
+                }
+
+                $("body").keyup(function() {
+                    socket.emit('straight',0);
+                });
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+<h1>Slide to change blink interval!</h1>
+<!-- <input id="slider" type="range" min="100" max="1000" value="1000" /> -->
+<button class="motor" type="submit" style="width: 100px; height: 100px">Left</button>
+<button class="motor" type="submit" style="width: 100px; height: 100px">Right</button>
+</body>
+</html>
