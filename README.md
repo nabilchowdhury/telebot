@@ -21,3 +21,5 @@ Then, we set up a web server to control the robot from afar.
 Tests involving blinking lights were then run based on online tutorials to familiarize ourselves with syntax.
 We then coded the motor control system on the Web App, creating a simple user interface with control buttons (left, forward, right).
 Once we verified that the system worked, we started working on the Android app. The app was to be used to control the robot while simultaneously streaming video via Sockets. By using the open source Sinch SDK, we were able to implement a quick application by adding additional code for the buttons to control the telebot to send requests to the Node.js server. The streaming of the video was taken care by the Sinch SDK. </p>
+
+Link: https://devpost.com/software/movr-telebot
